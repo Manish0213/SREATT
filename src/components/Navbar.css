@@ -1,0 +1,84 @@
+/* nav bar */
+
+.navbar {
+    background-color: #171203;
+}
+
+.main-nav {
+    justify-content: space-between;
+    padding: 18px;
+    position: relative;
+}
+
+.company-logo img {
+    width: 120px;
+}
+
+.nav-links ul {
+    gap: 40px;
+}
+
+.nav-links a {
+  color: white;
+}
+
+.nav-btns {
+    gap: 20px;
+    color: white;
+}
+
+.nav-btns a{
+    color: white;
+}
+
+.nav-content {
+    justify-content: end;
+    width: 100%;
+    gap: 100px;
+}
+
+/* -------- Media Query for Navbar.css --------  */
+
+@media screen and (max-width: 991px) {
+
+    .nav-content {
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        z-index: 10;
+        width: 100%;
+        background-color: #171203;
+        padding-block: 20px;
+    }
+
+    .nav-content.active {
+        left: 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    .main-nav {
+        /* overflow: initial; */
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-btns {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .fa-bars {
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .main-nav {
+        padding: 10px 20px;
+    }
+}

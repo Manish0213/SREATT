@@ -1,0 +1,384 @@
+@media screen and (max-width: 991px) {
+    .hero-content {
+        display: none;
+    }
+
+    .feature-section {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px 10px;
+    }
+
+    .feature-section .content-left {
+        max-width: 90%;
+    }
+
+    .feature-section .content-right {
+        max-width: 100%;
+    }
+
+    .content-right img {
+        width: 100%;
+    }
+
+    .feature-section {
+        flex-direction: column;
+        padding: 10px 20px 10px;
+    }
+
+    .feature-section .content-right {
+        width: 75%;
+        margin: auto;
+    }
+
+    .feature-section .content-desc {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .feature-item {
+        width: 100%;
+    }
+
+    .content-right img {
+        width: 100%;
+    }
+
+    .feature-heading {
+        font-size: 1.8rem;
+        margin: auto;
+    }
+
+    .feature-list {
+        margin: auto;
+    }
+
+    #feature-section-2 {
+        flex-direction: column;
+    }
+
+    /* --------------promise-card-section ----------- */
+
+    .promise-card-container {
+        flex-direction: column;
+    }
+
+    .brand-promise-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .brand-promise-text p {
+        font-size: 1rem;
+    }
+
+    /* --------------companies-section ----------- */
+
+    .companies-section {
+        padding: 15px 20px;
+    }
+
+    .companies-header {
+        font-size: 1.5rem;
+    }
+
+    .logos {
+        gap: 10px;
+    }
+
+    .logo {
+        /* width: 80px; */
+    }
+
+
+    /* --------------technology-section ----------- */
+
+    .technology-section-cards {
+        flex-direction: column;
+        padding: 24px 0px;
+        align-items: center;
+    }
+
+
+    .technology-section-text {
+        width: 100%;
+    }
+
+    .technology-section-text h1 {
+        font-size: 2rem;
+    }
+
+    .technology-section-text p {
+        font-size: 1rem;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 0px;
+    }
+
+    .hero-left {
+        text-align: center;
+        padding: 16px;
+    }
+
+    .hero-left-heading {
+        font-size: 2rem;
+    }
+
+    .hero-left-desc {
+        text-align: center;
+        width: 100%;
+    }
+
+    .btns {
+        justify-content: center;
+    }
+
+
+    .location-text-heading {
+        font-size: 2rem;
+
+    }
+
+    .location-text-subheading {
+        font-size: 1rem;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .map-image {
+        width: 100%;
+    }
+
+    .location-map-section {
+        padding: 20px;
+    }
+
+    .fa-magnifying-glass {
+        left: 20px;
+    }
+
+    .search-btn {
+        right: 10px;
+    }
+
+    .location-text-content {
+        padding: 10px;
+    }
+
+    .contact-section-container {
+        padding: 20px;
+    }
+
+    .contact-section-heading {
+        font-size: 2rem !important;
+    }
+
+    .contact-section-subheading {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+/* ------------------------------------- media questies 2 ---------------------------------- */
+
+@media screen and (max-width: 767px) {
+    .hero-content {
+        display: none;
+    }
+
+    .feature-section {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px 10px;
+    }
+
+    .feature-section .content-left {
+        max-width: 90%;
+    }
+
+    .feature-section .content-right {
+        max-width: 100%;
+    }
+
+    .content-right img {
+        width: 100%;
+    }
+
+    .feature-section {
+        flex-direction: column;
+        padding: 10px 20px 10px;
+    }
+
+    .feature-section .content-right {
+        width: 75%;
+        margin: auto;
+    }
+
+    .feature-section .content-desc {
+        width: 100%;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .feature-item {
+        width: 100%;
+    }
+
+    .content-right img {
+        width: 100%;
+    }
+
+    .feature-heading {
+        font-size: 1.8rem;
+        margin: auto;
+    }
+
+    .feature-list {
+        margin: auto;
+    }
+
+    #feature-section-2 {
+        flex-direction: column;
+    }
+
+    /* --------------promise-card-section ----------- */
+
+    .promise-card-container {
+        flex-direction: column;
+    }
+
+    .brand-promise-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .para-1 {
+        font-size: 1rem;
+    }
+
+    .para-2 {
+        font-size: 0.8rem;
+    }
+
+    /* --------------companies-section ----------- */
+
+    .companies-section {
+        padding: 15px 20px;
+    }
+
+    .companies-header {
+        font-size: 1.5rem;
+    }
+
+    .logos {
+        gap: 10px;
+    }
+
+    .logo {
+        /* width: 80px; */
+    }
+
+
+    /* --------------technology-section ----------- */
+
+    .technology-section-cards {
+        flex-direction: column;
+        padding: 24px 0px;
+        align-items: center;
+    }
+
+
+    .technology-section-text {
+        width: 100%;
+    }
+
+    .technology-section-text h1 {
+        font-size: 2rem;
+    }
+
+    .technology-section-text p {
+        font-size: 1rem;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 0px;
+    }
+
+    .hero-left {
+        text-align: center;
+        padding: 16px;
+    }
+
+    .hero-left-heading {
+        font-size: 2rem;
+    }
+
+    .hero-left-desc {
+        text-align: center;
+        width: 100%;
+    }
+
+    .btns {
+        justify-content: center;
+    }
+
+
+    .location-text-heading {
+        font-size: 2rem;
+
+    }
+
+    .location-text-subheading {
+        font-size: 1rem;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .map-image {
+        width: 100%;
+    }
+
+    .location-map-section {
+        padding: 20px;
+    }
+
+    .fa-magnifying-glass {
+        left: 20px;
+    }
+
+    .search-btn {
+        right: 10px;
+    }
+
+    .location-text-content {
+        padding: 10px;
+    }
+
+    .contact-section-container {
+        padding: 20px;
+    }
+
+    .contact-section-heading {
+        font-size: 2rem !important;
+    }
+
+    .contact-section-subheading {
+        font-size: 1rem;
+    }
+}

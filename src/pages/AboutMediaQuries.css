@@ -1,0 +1,79 @@
+@media (max-width: 991px) {
+
+    /* about slider quries */
+
+    .about-slider p {
+        text-align: center;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .about-slider h1 {
+        margin-top: 10px;
+    }
+
+
+    /* about section-2 quries */
+
+    .about-section-2 {
+        padding: 10px;
+    }
+
+    .about-section-2-container {
+        width: 100%;
+    }
+
+    /* about feature section */
+
+    .about-feature-section-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .about-feature-content {
+        width: 100%;
+    }
+
+    .about-feature-img-container {
+        width: 100%;
+    }
+
+    .about-feature-item {
+        margin-bottom: 10px;
+    }
+
+    .about-feature-item-container {
+        display: inline-block;
+        margin: auto;
+    }
+
+    /* commitment-section */
+
+    .commitment-section {
+        background-position: center;
+    }
+
+    .commitment-content h1 {
+        font-size: 2rem;
+    }
+
+    .commitment-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .commitment-content p {
+        font-size: 1rem;
+    }
+
+
+    /* ---------------- Why Choose Sreatt ---------------- */
+
+    .whychoosesreatt-container {
+        justify-content: center;
+    }
+
+    .whychoosesreatt-heading {
+        text-align: center;
+    }
+}

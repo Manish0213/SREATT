@@ -1,0 +1,63 @@
+.register-warranty {
+}
+
+.view-warranty-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07), 0 4px 10px rgba(0, 0, 0, 0.04);
+    padding: 40px 40px;
+    margin: 60px auto;
+}
+
+.view-warranty h1 {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* full width fields */
+.view-warranty-form .full {
+    grid-column: span 2;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #dcdfe4;
+}
+
+.submit-btn {
+    grid-column: span 2;
+    /* full width in grid */
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background-color: #F8C419;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+
+
+/* mobile friendly adjustments */
+
+@media (max-width: 768px) {
+  .register-warranty-form {
+    grid-template-columns: 1fr;
+  }
+
+  .register-warranty-form .full {
+    grid-column: span 1;
+  }
+}

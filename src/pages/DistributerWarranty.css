@@ -1,0 +1,116 @@
+/* Page padding */
+.distributer-warranty {
+  padding: 0 16px;
+}
+
+/* Heading */
+.distributer-warranty h1 {
+  text-align: center;
+  margin: 50px 0 30px;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+/* Form container */
+.distributer-warranty-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+
+  max-width: 1000px;
+  width: 100%;
+
+  margin: 0 auto 80px;
+  padding: 40px;
+
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07),
+              0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Full width field */
+.distributer-warranty-form .full {
+  grid-column: span 2;
+}
+
+/* Form group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #dcdfe4;
+  font-size: 15px;
+}
+
+/* Submit button */
+.submit-btn {
+  grid-column: span 2;
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+
+  background-color: #F8C419;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+/* ===================== */
+/* 📱 Tablet & Mobile */
+/* ===================== */
+
+@media (max-width: 768px) {
+  .distributer-warranty-form {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .distributer-warranty-form .full {
+    grid-column: span 1;
+  }
+
+  .submit-btn {
+    grid-column: span 1;
+  }
+
+  .distributer-warranty h1 {
+    font-size: 26px;
+    margin-top: 20px;
+  }
+}
+
+/* ===================== */
+/* 📱 Small Mobiles */
+/* ===================== */
+
+@media (max-width: 480px) {
+  .distributer-warranty-form {
+    padding: 20px;
+  }
+
+  .form-group input {
+    font-size: 14px;
+    padding: 11px;
+  }
+
+  .submit-btn {
+    font-size: 15px;
+    padding: 14px;
+  }
+}

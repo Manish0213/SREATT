@@ -1,0 +1,136 @@
+/* ProductDetailHero.css */
+
+.product-detail-hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    padding: 60px 0;
+}
+
+/* ================= LEFT CONTENT ================= */
+
+.product-detail-hero-info-container {
+    width: 55%;
+}
+
+.product-detail-hero-info-heading {
+    font-size: 38px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    width: 80%;
+}
+
+.product-detail-hero-info-heading span {
+    color: #f5b400;
+}
+
+.product-detail-hero-info-subheading {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    max-width: 520px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ================= BUTTONS ================= */
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.primary-btn {
+    background-color: #f5b400;
+    color: #000;
+    border: none;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+    background-color: #e2a800;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000000;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+    /* background-color: #f5b400; */
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* ================= RIGHT IMAGE ================= */
+
+.product-detail-hero-image-container {
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.product-detail-hero-image-container img {
+    max-width: 320px;
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+    .product-detail-hero-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+        padding: 30px;
+    }
+
+    .product-detail-hero-info-container,
+    .product-detail-hero-image-container {
+        width: 100%;
+    }
+
+    .product-detail-hero-image-container {
+        justify-content: center;
+    }
+
+    .product-detail-hero-image-container img {
+        max-width: 420px;
+    }
+
+    .hero-btns {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-detail-hero-info-heading {
+        font-size: 28px;
+    }
+
+    .primary-btn {
+        width: 100%;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+    }
+}

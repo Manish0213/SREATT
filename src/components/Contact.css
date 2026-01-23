@@ -1,0 +1,26 @@
+.contact-section-container {
+    background-image: url(../assets/bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 10px 0 40px 0;
+}
+
+.contact-us-btn {
+    background-color: black;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 36px;
+}
+
+.contact-section-heading {
+    font-size: 42px;
+}
+
+.contact-section-subheading {
+    font-size: 18px;
+    margin-top: 10px;
+}

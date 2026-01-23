@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@400;700&display=swap');
+
+/* resets */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --padding-inline-section: 20px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-text-color);
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    /* color: var(--secondary-text-color); */
+    line-height: 1.8rem;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+}
+
+/* utility classes */
+
+.small-bold-text {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1180px;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: var(--padding-inline-section);
+    /* overflow: hidden; */
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.primary-button {
+    background-color: #F8C419;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #171203 !important;
+    padding: 10px 20px;
+    box-shadow: 0 0 2px var(--secondary-text-color);
+    transition: 0.2s ease-out;
+}
+
+.secondary-button {
+    border: 1px solid white;
+    border-radius: 6px;
+    font-weight: 700;
+    color: white !important;
+    padding: 12px 24px;
+    transition: 0.2s ease-out;
+    background: none;
+}
+
+.card-logo {
+  width: 50px;
+}
+
+.secondary-2-button {
+    border: 1px solid black;
+    border-radius: 6px;
+    font-weight: 700;
+    color: black !important;
+    padding: 10px 20px;
+    transition: 0.2s ease-out;
+    background: none;
+    font-size: 15px;
+}

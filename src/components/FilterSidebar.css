@@ -1,0 +1,130 @@
+.filter {
+  width: 260px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Header */
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  display: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Labels */
+.label {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.label input {
+    width: 16px;
+}
+
+/* Apply Button */
+.apply-btn {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.reset-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    color: #6C7275;
+    border: none;
+}
+
+/* ===== MOBILE ===== */
+.mobile-filter-btn {
+  display: none;
+  margin-bottom: 15px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 99;
+}
+
+/* ------------------------ MY ADDITION --------------------- */
+.capacity-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.capacity button {
+  padding: 6px 12px;
+  border: 1px solid #E0E2E7;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+
+  .mobile-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .filter {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 280px;
+    z-index: 100;
+    border-radius: 0;
+    transition: 0.3s ease-in-out;
+    overflow-y: auto;
+  }
+
+  .filter.active {
+    left: 0;
+  }
+
+  .close-btn {
+    display: block;
+  }
+
+  .Filter-heading {
+    display: none;
+  }
+
+  .filter-header {
+    justify-content: flex-end;
+  }
+  
+}
