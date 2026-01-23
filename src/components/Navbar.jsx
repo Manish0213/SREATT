@@ -16,7 +16,7 @@ const Navbar = () => {
                     <div class="nav-links">
                         <ul class="flex">
                             <li><Link to="/" class="hover-link">Home</Link></li>
-                            <li><Link to="/about" class="hover-link">About</Link></li>
+                            {/* <li><Link to="/about" class="hover-link">About</Link></li> */}
                             <li><Link to="/product" class="hover-link">Products</Link></li>
                             <li><Link to="/register-warranty" class="hover-link">Warranty</Link></li>
                             <li><Link to="contact-us" class="hover-link">Contact</Link></li>

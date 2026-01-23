@@ -7,7 +7,7 @@ const DistributerWarranty = () => {
     return (
         <section className='distributer-warranty'>
             <h1>Distributor Registration</h1>
-            <form action="#" className='container distributer-warranty-form'>
+            <form action="#" className='distributer-warranty-form'>
                 <div className="form-group">
                     <label htmlFor="firstName">First Name</label>
                     <input type="text" id="firstName" placeholder='Enter your first name' />

@@ -7,13 +7,13 @@ const RegisterWarranty = () => {
     return (
         <section className='register-warranty'>
             <h1>Register Warranty</h1>
-            <form className="container register-warranty-form">
+            <form className="register-warranty-form">
                 <div className="form-group full">
                     <label htmlFor="dealer">Dealer Name</label>
                     <input type="text" id="dealer" placeholder='Enter dealer name' />
                 </div>
 
-                <div className="form-group full">
+                <div className={`form-group ${window.innerWidth > 768 ? 'full' : ''}`}>
                     <label htmlFor="address">Address</label>
                     <input type="text" id="address" placeholder='Enter address' />
                 </div>

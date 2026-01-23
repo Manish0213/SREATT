@@ -74,14 +74,21 @@
   .register-warranty-form {
     grid-template-columns: 1fr;
     padding: 24px;
+    gap: 2px;
+  }
+
+  .register-warranty-form > .form-group {
+    grid-column: 1 / -1;
   }
 
   .register-warranty-form .full {
-    grid-column: span 1;
+    /* grid-column: span 1; */
+    grid-column: 1 / -1;
   }
 
   .submit-btn {
-    grid-column: span 1;
+    /* grid-column: span 1; */
+    grid-column: 1 / -1;
   }
 
   .register-warranty h1 {
