@@ -179,9 +179,10 @@
 
     .login-page {
         align-items: flex-start;   /* 🔥 ye line sab fix karegi */
+        min-height: auto;
     }
 
     .login-right h2 {
-        font-size: 26px;   
+        font-size: 26px;
     }
 }
