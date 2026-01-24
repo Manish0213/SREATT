@@ -169,6 +169,7 @@
 
     .login-right {
         width: 100%;
+        padding: 60px 30px;
     }
 
     .login-container {
@@ -176,7 +177,11 @@
         border-radius: 0px;
     }
 
-    .login-right {
-        padding: 60px 30px;
+    .login-page {
+        align-items: flex-start;   /* 🔥 ye line sab fix karegi */
+    }
+
+    .login-right h2 {
+        font-size: 26px;   
     }
 }
