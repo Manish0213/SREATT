@@ -34,8 +34,11 @@ import '../pages/Home.css';
 import '../pages/HomeMediaQueries.css';
 
 import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             {/* hero section */}
@@ -171,7 +174,7 @@ export const Home = () => {
                         <p className='hero-left-desc'>We are expanding rapidly across India with strong supply chain support, taining, and dealer benefits.</p>
                         <span>Interest in joining us?</span>
                         <div className='btns flex'>
-                            <a href="#" class="primary-button">Become a Dealer</a>
+                            <a href="#" class="primary-button" onClick={() => navigate(`/distributer-warranty`)}>Become a Dealer</a>
                             <a href="#" class="secondary-2-button">Wholesale Enquiry</a>
                         </div>
                     </div>

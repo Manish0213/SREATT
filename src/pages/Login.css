@@ -175,4 +175,8 @@
         width: 100%;
         border-radius: 0px;
     }
+
+    .login-right {
+        padding: 60px 30px;
+    }
 }

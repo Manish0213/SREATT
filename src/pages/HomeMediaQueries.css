@@ -381,4 +381,10 @@
     .contact-section-subheading {
         font-size: 1rem;
     }
+
+    /* ------------------ location-map-section ------------------ */
+
+    .search-input input::placeholder {
+        font-size: 12px;
+    }
 }
