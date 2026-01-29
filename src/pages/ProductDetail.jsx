@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import './ProductDetail.css';
 import thumbnail1 from '../assets/ThumbnailImages/thumbnail1.png';
 import thumbnail2 from '../assets/ThumbnailImages/thumbnail2.png';
@@ -22,14 +23,20 @@ const ProductDetail = () => {
         return <h2 style={{ textAlign: "center" }}>Product Not Found</h2>;
     }
 
+    // 👇 default main image = first image
+    const [selectedImage, setSelectedImage] = useState(product.images[0]);
+
     return (
         <>
             <section className='product-details-container container'>
                 <div className="product-image-section">
-                    <img src={product.image} alt="Product Name" />
+                    {/* <img src={selectedImage} alt="Product Name" /> */}
+                    <div className="main-image-wrapper">
+                        <img src={selectedImage} alt="Product Name" />
+                    </div>
                     <div className="thumbnail-images">
-                        {product.thumbnails.map((img, index) => (
-                            <img key={index} src={img} alt="thumbnail" />
+                        {product.images.map((img, index) => (
+                            <img key={index} src={img} alt="thumbnail" onClick={() => setSelectedImage(img)} />
                         ))}
                     </div>
                 </div>
