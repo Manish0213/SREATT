@@ -74,42 +74,56 @@
 }
 
 /* ===================== */
-/* 🔥 QUAGGA SCANNER */
+/* 🔥 SCANNER BOX */
 /* ===================== */
 
-.quagga-scanner {
-  width: 100%;
-  max-width: 420px;
-  height: 320px;
-  position: relative;
-}
-
-.quagga-scanner video,
-.quagga-scanner canvas {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
-}
-
-/* Scanner Box */
 .scanner-box {
   grid-column: span 2;
   margin-top: 20px;
   padding: 20px;
-  background: #000;
+
   border-radius: 12px;
+  background: #000;
+  border: 1px dashed #ccc;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
-/* Close Button */
+/* CAMERA WRAPPER */
+.scanner-camera {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;   /* 🔥 square scanner */
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* FORCE VIDEO FULL SIZE */
+.scanner-camera video,
+.scanner-camera canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* CLOSE BUTTON */
 .close-btn {
   padding: 8px 18px;
-  background: #e53935;
-  color: #fff;
+  font-size: 14px;
+
+  background-color: #e53935;
+  color: white;
+
   border: none;
   border-radius: 8px;
   cursor: pointer;
