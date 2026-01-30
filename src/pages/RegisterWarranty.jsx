@@ -1,9 +1,14 @@
 import React from 'react'
+import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import BarcodeScannerComponent from "react-qr-barcode-scanner";
 import './RegisterWarranty.css'
 
 const RegisterWarranty = () => {
+    const [serialNumber, setSerialNumber] = useState("");
+    const [showScanner, setShowScanner] = useState(false);
+
     return (
         <section className='register-warranty'>
             <h1>Register Warranty</h1>
@@ -43,10 +48,45 @@ const RegisterWarranty = () => {
                     <input type="text" id="modelNumber" placeholder='Enter model number' />
                 </div>
 
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="serialNumber">Battery Serial Number</label>
                     <input type="text" id="serialNumber" placeholder='Enter serial number' />
+                </div> */}
+                <div className="form-group">
+                    <label htmlFor="serialNumber">Battery Serial Number</label>
+                    <input
+                        type="text"
+                        id="serialNumber"
+                        value={serialNumber}
+                        placeholder="Scan or enter serial number"
+                        onChange={(e) => setSerialNumber(e.target.value)}
+                    />
+
+                    <button
+                        type="button"
+                        className="scan-btn"
+                        onClick={() => setShowScanner(true)}
+                    >
+                        📷 Scan Barcode
+                    </button>
                 </div>
+
+                {showScanner && (
+                    <div className="scanner-box">
+                        <BarcodeScannerComponent
+                            width={300}
+                            height={50}
+                            onUpdate={(err, result) => {
+                                if (result) {
+                                    setSerialNumber(result.text);
+                                    setShowScanner(false);
+                                }
+                            }}
+                        />
+                        <button onClick={() => setShowScanner(false)}>Close</button>
+                    </div>
+                )}
+
                 <button type="submit" className="submit-btn">
                     Submit
                 </button>
