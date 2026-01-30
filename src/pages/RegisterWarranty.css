@@ -79,34 +79,50 @@
 
 .scanner-box {
   grid-column: span 2;
-
   margin-top: 20px;
   padding: 20px;
 
   border-radius: 12px;
-  background: #f9f9f9;
+  background: #000;
   border: 1px dashed #ccc;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
-/* Scanner video fix */
-.scanner-box video {
+/* CAMERA WRAPPER */
+.scanner-camera {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;   /* 🔥 square scanner */
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* FORCE VIDEO FULL SIZE */
+.scanner-camera video,
+.scanner-camera canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+
   width: 100% !important;
-  max-width: 320px;
-  border-radius: 10px;
+  height: 100% !important;
+
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-/* Close Button */
-.scanner-box button {
-  padding: 8px 16px;
+/* CLOSE BUTTON */
+.close-btn {
+  padding: 8px 18px;
   font-size: 14px;
 
   background-color: #e53935;
-  color: #fff;
+  color: white;
 
   border: none;
   border-radius: 8px;

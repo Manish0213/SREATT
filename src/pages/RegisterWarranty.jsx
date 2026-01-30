@@ -73,17 +73,24 @@ const RegisterWarranty = () => {
 
                 {showScanner && (
                     <div className="scanner-box">
-                        <BarcodeScannerComponent
-                            width={300}
-                            height={50}
-                            onUpdate={(err, result) => {
-                                if (result) {
-                                    setSerialNumber(result.text);
-                                    setShowScanner(false);
-                                }
-                            }}
-                        />
-                        <button onClick={() => setShowScanner(false)}>Close</button>
+                        <div className="scanner-camera">
+                            <BarcodeScannerComponent
+                                onUpdate={(err, result) => {
+                                    if (result) {
+                                        setSerialNumber(result.text);
+                                        setShowScanner(false);
+                                    }
+                                }}
+                            />
+                        </div>
+
+                        <button
+                            type="button"
+                            className="close-btn"
+                            onClick={() => setShowScanner(false)}
+                        >
+                            Close
+                        </button>
                     </div>
                 )}
 
