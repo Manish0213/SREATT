@@ -75,7 +75,7 @@ const RegisterWarranty = () => {
                     Submit
                 </button>
             </form>
-            
+
             {showScanner && (
                 <BarcodeScanner
                     onDetected={(code) => setSerialNumber(code)}
