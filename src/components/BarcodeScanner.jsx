@@ -64,8 +64,12 @@ const BarcodeScanner = ({ onDetected, onClose }) => {
     <div className="scanner-box">
       <div ref={scannerRef} className="quagga-scanner"></div>
 
-      <button type="button" className="close-btn" onClick={onClose}>
-        Close
+      <button
+        type="button"
+        className="close-btn top-close"
+        onClick={onClose}
+      >
+        ✕
       </button>
     </div>
   );

@@ -125,17 +125,37 @@
 }
 
 /* ===================== */
-/* CLOSE BUTTON */
+/* TOP RIGHT CLOSE BUTTON */
 /* ===================== */
 
-.close-btn {
-  margin-top: 15px;
-  padding: 10px 22px;
-  background: #f8c419;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
+.top-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 42px;
+  height: 42px;
+
+  background: #000;
+  color: #fff;
+
+  border-radius: 50%;
+  border: 2px solid #fff;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
+  z-index: 10000;
+}
+
+/* Tap friendly for mobile */
+.top-close:active {
+  transform: scale(0.95);
 }
 
 /* ===================== */
@@ -188,8 +208,7 @@
     font-size: 15px;
   }
 
-  #scanner {
-    /* width: 95vw;
-    height: 260px; */
+  .quagga-scanner {
+    /* height: 230px; */
   }
 }
