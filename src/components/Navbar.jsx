@@ -22,7 +22,8 @@ const Navbar = () => {
                             <li><Link to="/" class="hover-link" onClick={closeMenu}>Home</Link></li>
                             {/* <li><Link to="/about" class="hover-link">About</Link></li> */}
                             <li><Link to="/product" class="hover-link" onClick={closeMenu}>Products</Link></li>
-                            <li><Link to="/register-warranty" class="hover-link" onClick={closeMenu}>Warranty</Link></li>
+                            <li><Link to="/register-warranty" class="hover-link" onClick={closeMenu}>Register Warranty</Link></li>
+                            <li><Link to="/view-warranty" class="hover-link" onClick={closeMenu}>View Warranty</Link></li>
                             <li><Link to="contact-us" class="hover-link" onClick={closeMenu}>Contact</Link></li>
                         </ul>
                     </div>

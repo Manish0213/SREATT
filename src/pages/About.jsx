@@ -103,7 +103,6 @@ const About = () => {
         </div>
       </section>
       
-      <AboutHeroSection />
       <Contact />
     </div>
   )
