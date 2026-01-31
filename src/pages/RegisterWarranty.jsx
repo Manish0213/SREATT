@@ -1,11 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import BarcodeScannerComponent from "react-qr-barcode-scanner";
 import './RegisterWarranty.css'
+import BarcodeScanner from '../components/BarcodeScanner';
 
 const RegisterWarranty = () => {
+
     const [serialNumber, setSerialNumber] = useState("");
     const [showScanner, setShowScanner] = useState(false);
 
@@ -52,52 +51,37 @@ const RegisterWarranty = () => {
                     <label htmlFor="serialNumber">Battery Serial Number</label>
                     <input type="text" id="serialNumber" placeholder='Enter serial number' />
                 </div> */}
+
+                {/* Serial Number with QR Icon */}
                 <div className="form-group">
-                    <label htmlFor="serialNumber">Battery Serial Number</label>
-                    <input
-                        type="text"
-                        id="serialNumber"
-                        value={serialNumber}
-                        placeholder="Scan or enter serial number"
-                        onChange={(e) => setSerialNumber(e.target.value)}
-                    />
+                    <label>Battery Serial Number</label>
 
-                    <button
-                        type="button"
-                        className="scan-btn"
-                        onClick={() => setShowScanner(true)}
-                    >
-                        📷 Scan Barcode
-                    </button>
-                </div>
+                    <div className="barcode-input">
+                        <input
+                            type="text"
+                            value={serialNumber}
+                            placeholder="Scan or enter serial number"
+                            onChange={(e) => setSerialNumber(e.target.value)}
+                        />
 
-                {showScanner && (
-                    <div className="scanner-box">
-                        <div className="scanner-camera">
-                            <BarcodeScannerComponent
-                                onUpdate={(err, result) => {
-                                    if (result) {
-                                        setSerialNumber(result.text);
-                                        setShowScanner(false);
-                                    }
-                                }}
-                            />
-                        </div>
-
-                        <button
-                            type="button"
-                            className="close-btn"
-                            onClick={() => setShowScanner(false)}
-                        >
-                            Close
-                        </button>
+                        <i
+                            className="fa-solid fa-qrcode scan-icon"
+                            onClick={() => setShowScanner(true)}
+                        ></i>
                     </div>
-                )}
+                </div>
 
                 <button type="submit" className="submit-btn">
                     Submit
                 </button>
             </form>
+            
+            {showScanner && (
+                <BarcodeScanner
+                    onDetected={(code) => setSerialNumber(code)}
+                    onClose={() => setShowScanner(false)}
+                />
+            )}
         </section>
     )
 }
