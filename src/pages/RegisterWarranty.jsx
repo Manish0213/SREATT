@@ -70,17 +70,20 @@ const RegisterWarranty = () => {
                     </div>
                 </div>
 
+                {showScanner && (
+                    <BarcodeScanner
+                        onDetected={(code) => {
+                            setSerialNumber(code);
+                            setShowScanner(false);
+                        }}
+                        onClose={() => setShowScanner(false)}
+                    />
+                )}
+
                 <button type="submit" className="submit-btn">
                     Submit
                 </button>
             </form>
-
-            {showScanner && (
-                <BarcodeScanner
-                    onDetected={(code) => setSerialNumber(code)}
-                    onClose={() => setShowScanner(false)}
-                />
-            )}
         </section>
     )
 }
