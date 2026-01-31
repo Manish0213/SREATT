@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import './RegisterWarranty.css'
-import BarcodeScanner from '../components/BarcodeScanner';
+import BarcodeScanner1 from '../components/BarcodeScanner1.jsx';
 
 const RegisterWarranty = () => {
 
@@ -77,7 +77,7 @@ const RegisterWarranty = () => {
             </form>
 
             {showScanner && (
-                <BarcodeScanner
+                <BarcodeScanner1
                     onDetected={(code) => setSerialNumber(code)}
                     onClose={() => setShowScanner(false)}
                 />

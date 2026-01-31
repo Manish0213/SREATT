@@ -40,9 +40,12 @@ const BarcodeScanner = ({ onDetected, onClose }) => {
 
     return (
         <div className="scanner-overlay">
-            <div>
+            <div className="scanner-wrapper">
                 <div id="scanner"></div>
-                <button className="close-btn" onClick={onClose}>Close</button>
+
+                <button className="close-btn" onClick={onClose}>
+                    Close
+                </button>
             </div>
         </div>
     );
