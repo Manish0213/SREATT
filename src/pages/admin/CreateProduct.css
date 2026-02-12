@@ -1,0 +1,421 @@
+.create-product {
+  padding: 24px;
+  background: #f8fafc;
+}
+
+/* Header */
+.cp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.cp-header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.cp-header p {
+  color: #64748b;
+  font-size: 18px;
+}
+
+.cp-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary {
+  /* background: #f97316; */
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid #cbd5f5;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+/* Grid */
+.cp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Cards */
+.cp-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.cp-card h3 {
+  margin-bottom: 16px;
+}
+
+.cp-card h3 i {
+  color: #2563eb; /* blue */
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+}
+
+/* Inputs */
+.cp-card input,
+.cp-card select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 12px;
+}
+
+.specification-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.specification-form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.specification-form-group input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* SKU */
+.sku-row {
+  position: relative;
+}
+
+.auto-gen {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/* Radio Grid */
+.radio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Card */
+.radio-card {
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px 12px;          /* reduced padding */
+  display: flex;
+  align-items: center;
+  gap: 8px;                    /* radio + text gap */
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+/* Radio size & spacing FIX */
+.radio-card input[type="radio"] {
+  margin: 0;                   /* ⭐ default margin remove */
+  width: 16px;
+  height: 16px;
+  accent-color: #2563eb;
+  flex-shrink: 0;              /* radio compress na ho */
+}
+
+/* Text */
+.radio-card span {
+  font-size: 14px;
+  color: #0f172a;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Hover */
+.radio-card:hover {
+  border-color: #2563eb;
+  background: #f8fafc;
+}
+
+/* Selected */
+.radio-card:has(input:checked) {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+/* Terminal */
+.terminal-grid {
+  display: flex;
+  gap: 10px;
+}
+
+.terminal-grid button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: white;
+}
+
+.terminal-grid .active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+/* Upload */
+
+/* Upload box */
+.upload-box {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 28px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.upload-label {
+  cursor: pointer;
+  display: block;
+}
+
+.upload-label input {
+  display: none;
+}
+
+.upload-content {
+  color: #475569;
+}
+
+.upload-content span {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+/* Image list */
+.image-list {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.image-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  gap: 8px;
+}
+
+.image-name {
+  font-size: 13px;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+/* Remove button */
+.remove-btn {
+  border: none;
+  background: transparent;
+  color: #ef4444;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Quantity */
+
+.qty-row {
+  display: flex;          
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 6px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+  /* width: fit-content; */
+}
+
+/* Buttons */
+.qty-row button {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover */
+.qty-row button:hover {
+  background: #e2e8f0;
+}
+
+.qty-row button:first-of-type {
+  margin-right: auto;
+}
+
+.qty-row button:last-of-type {
+  margin-left: auto;
+}
+
+/* Number */
+.qty-row span {
+  min-width: 28px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #475569;
+  cursor: pointer;
+}
+
+/* Checkbox itself */
+.checkbox input[type="checkbox"] {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: #2563eb;   /* modern blue */
+  cursor: pointer;
+}
+
+/* Hover effect */
+.checkbox:hover {
+  color: #0f172a;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.tags span {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* Full width */
+.full {
+  margin-top: 24px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
+  .cp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cp-header h1 {
+    font-size: 28px;
+  }
+
+  .cp-header p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Header stack */
+  .cp-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .cp-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .cp-actions button {
+    width: 100%;
+  }
+
+  /* Cards grid */
+  .cp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Inputs grids */
+  .two-col,
+  .three-col {
+    /* grid-template-columns: 1fr; */
+  }
+
+  /* Quantity */
+  .qty-row {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Upload */
+  .upload-box {
+    padding: 20px;
+  }
+
+  .image-name {
+    max-width: 160px;
+  }
+}

@@ -1,0 +1,55 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+/* Sidebar */
+.admin-layout > aside {
+  width: 260px;          /* sidebar width */
+  flex-shrink: 0;        /* sidebar squeeze na ho */
+}
+
+/* Main Content (Outlet) */
+.admin-layout > *:last-child {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  margin-top: 50px;  /* top margin for mobile toggle button */
+}
+
+.admin-content {
+  flex: 1;
+  position: relative;
+  padding: 24px;
+}
+
+/* Toggle button */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1100;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Overlay */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
+}
