@@ -35,8 +35,10 @@ const AdminSidebar = ({ open, onClose }) => {
           </NavLink>
         </li>
         <li className="">
-          <i className="fa-solid fa-box"></i>
-          <span>Products</span>
+          <NavLink to="/admin/inventory" onClick={onClose} className={({ isActive }) => isActive ? "active" : ""}>
+            <i className="fa-solid fa-box"></i>
+            <span>Inventory</span>
+          </NavLink>
         </li>
         <li>
           <i className="fa-solid fa-cart-shopping"></i>

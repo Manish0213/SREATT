@@ -5,17 +5,18 @@
 }
 
 /* Sidebar */
-.admin-layout > aside {
-  width: 260px;          /* sidebar width */
-  flex-shrink: 0;        /* sidebar squeeze na ho */
+.admin-layout>aside {
+  width: 260px;
+  /* sidebar width */
+  flex-shrink: 0;
+  /* sidebar squeeze na ho */
 }
 
 /* Main Content (Outlet) */
-.admin-layout > *:last-child {
+.admin-layout>*:last-child {
   flex: 1;
   padding: 24px;
   overflow-y: auto;
-  margin-top: 50px;  /* top margin for mobile toggle button */
 }
 
 .admin-content {
@@ -51,5 +52,10 @@
 @media (max-width: 768px) {
   .sidebar-toggle {
     display: block;
+  }
+
+  /* Main Content (Outlet) */
+  .admin-layout>*:last-child {
+    margin-top: 50px;
   }
 }

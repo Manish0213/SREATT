@@ -18,6 +18,7 @@ import ProductDetail from './pages/ProductDetail';
 
 import AdminDashboard from './pages/admin/AdminDashboard';
 import CreateProduct from './pages/admin/CreateProduct';
+import Inventory from './pages/admin/Inventory';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route index element={<AdminDashboard />} />
           <Route path="create-product" element={<CreateProduct />} />
           <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="inventory" element={<Inventory />} />
         </Route>
 
       </Routes>
