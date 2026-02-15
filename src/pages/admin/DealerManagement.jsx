@@ -134,7 +134,7 @@ const DealerManagement = () => {
 
                                 <td>
                                     <strong>{dealer.dealerName}</strong>
-                                    <p>ID: {dealer.id}</p>
+                                    <p className="dealer-id">ID: {dealer.id}</p>
                                 </td>
 
                                 <td>

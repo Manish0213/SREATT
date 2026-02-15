@@ -52,7 +52,7 @@
   background: white;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .stat-card p {
@@ -69,6 +69,9 @@
   display: flex;
   gap: 12px;
   margin-bottom: 16px;
+
+  flex-wrap: wrap;
+  /* 🔥 Important */
 }
 
 .filter-bar input,
@@ -76,6 +79,18 @@
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid #ddd;
+
+  font-size: 14px;
+}
+
+/* Desktop Layout */
+.filter-bar input {
+  flex: 1;
+  min-width: 250px;
+}
+
+.filter-bar select {
+  min-width: 180px;
 }
 
 /* Table */
@@ -83,19 +98,27 @@
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  width: 100%;
+  overflow-x: auto;
+  /* 🔥 Important */
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+
+  min-width: 1000px;
+  /* 🔥 Table shrink nahi hoga */
 }
 
 thead {
   background: #f3f4f6;
 }
 
-th, td {
+th,
+td {
   /* padding: 16px; */
   padding: 10px;
   text-align: left;
@@ -116,6 +139,14 @@ tbody tr {
   border-radius: 6px;
   font-size: 12px;
 }
+
+/* .dealer-id {
+  background: #f3f4f6;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  width: fit-content;
+} */
 
 .badge {
   padding: 4px 10px;
@@ -241,7 +272,7 @@ tbody tr {
   background: #f3f4f6;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
 
   .page-header h2 {
     font-size: 28px;
@@ -257,5 +288,22 @@ tbody tr {
 
   .stats-grid {
     display: none;
+  }
+
+  .footer-left {
+    display: none;
+  }
+
+  .table-footer {
+    justify-content: center;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+  }
+
+  .filter-bar input,
+  .filter-bar select {
+    width: 100%;
   }
 }
