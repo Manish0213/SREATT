@@ -20,6 +20,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import CreateProduct from './pages/admin/CreateProduct';
 import Inventory from './pages/admin/Inventory';
 import DealerManagement from './pages/admin/DealerManagement';
+import WarrantyManagement from './pages/admin/WarrantyManagement';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="inventory" element={<Inventory />} />
           <Route path="dealermanagement" element={<DealerManagement />} />
+          <Route path="warrantymanagement" element={<WarrantyManagement />} />
         </Route>
 
       </Routes>

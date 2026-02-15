@@ -1,58 +1,65 @@
-import React, { useState } from "react";
-import "./DealerManagement.css";
+import React from 'react'
+import { useState } from 'react';
+import image3 from '../../assets/ProductImages/image3.png';
+import image4 from '../../assets/ProductImages/image4.png';
+import image5 from '../../assets/ProductImages/image5.png';
+import image6 from '../../assets/ProductImages/image6.png';
+import './WarrantyManagement.css';
 
-const DealerManagement = () => {
+const WarrantyManagement = () => {
 
-    const [dealers, setDealers] = useState([
+    const [data, setData] = useState([
         {
-            dealerCode: "DLR-001",
+            name: "Pro Max X-120",
+            productImage: image3,
+            SerialNo: "SN123456789",
             dealerName: "Sai Vinayaka Batteries",
+            dealerCode: "DLR-001",
             shopName: "SV Batteries Store",
-            id: "SRE-2024-001",
-            location: "Bengaluru, KA",
-            address: "JP Nagar 2nd Phase",
-            tier: "Premium",
+            customerName: "Sunil Kumar",
+            purchaseDate: "2026-02-15",
             status: "Pending",
         },
         {
-            dealerCode: "DLR-002",
+            name: "SREATT Silver S-65",
+            productImage: image4,
+            SerialNo: "SN123456789",
             dealerName: "Metro Auto Spares",
+            dealerCode: "DLR-002",
             shopName: "Metro Auto Hub",
-            id: "SRE-2024-042",
-            location: "Mumbai, MH",
-            address: "Andheri West",
-            tier: "Standard",
+            customerName: "Sunil Kumar",
+            purchaseDate: "2026-02-15",
             status: "Approved",
         },
         {
-            dealerCode: "DLR-002",
+            name: "Titanium M-X",
+            productImage: image5,
+            SerialNo: "SN123456789",
             dealerName: "Metro Auto Spares",
+            dealerCode: "DLR-002",
             shopName: "Metro Auto Hub",
-            id: "SRE-2024-042",
-            location: "Mumbai, MH",
-            address: "Andheri West",
-            tier: "Standard",
+            customerName: "Sunil Kumar",
+            purchaseDate: "2026-02-15",
             status: "Approved",
         },
         {
-            dealerCode: "DLR-002",
+            name: "SREATT Gold MT-7",
+            productImage: image6,
+            SerialNo: "SN123456789",
             dealerName: "Metro Auto Spares",
+            dealerCode: "DLR-002",
             shopName: "Metro Auto Hub",
-            id: "SRE-2024-042",
-            location: "Mumbai, MH",
-            address: "Andheri West",
-            tier: "Standard",
+            customerName: "Sunil Kumar",
+            purchaseDate: "2026-02-15",
             status: "Approved",
         }
     ]);
 
-
     const handleStatusChange = (index, newStatus) => {
-        const updatedDealers = [...dealers];
-        updatedDealers[index].status = newStatus;
-        setDealers(updatedDealers);
+        const updatedData = [...data];
+        updatedData[index].status = newStatus;
+        setData(updatedData);
     };
-
 
     return (
         <div className="dealer-page">
@@ -94,11 +101,6 @@ const DealerManagement = () => {
             <div className="filter-bar">
                 <input type="text" placeholder="Search by name, location or ID..." />
                 <select>
-                    <option>All Tiers</option>
-                    <option>Premium</option>
-                    <option>Standard</option>
-                </select>
-                <select>
                     <option>Active Status</option>
                     <option>Approved</option>
                     <option>Pending</option>
@@ -111,51 +113,59 @@ const DealerManagement = () => {
                 <table>
                     <thead>
                         <tr>
-                            <th>Dealer Code</th>  {/* ✅ New First Column */}
-                            <th>Dealer Name</th>
-                            <th>Shop Name</th> {/* ✅ New Column */}
-                            <th>Location</th>
-                            <th>Tier</th>
-                            <th>Status</th>
+                            <th>Product Details</th>
+                            <th>Dealer Details</th>
+                            <th>Customer Name</th>
+                            <th>Purchase Date</th>
+                            <th>Warranty Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        {dealers.map((dealer, index) => (
+                        {data.map((data, index) => (
                             <tr key={index}>
 
-                                {/* ✅ Dealer Code Column */}
+                                {/* <td>
+                                    <strong>{data.name}</strong>
+                                    <p>Serial No. <span className="dealer-code">{data.SerialNo}</span></p>
+                                </td> */}
+
                                 <td>
-                                    <span className="dealer-code">
-                                        {dealer.dealerCode}
-                                    </span>
+                                    <div className="product-info-cell">
+                                        <img
+                                            src={data.productImage}
+                                            alt={data.name}
+                                            className="product-thumb"
+                                        />
+
+                                        <div>
+                                            <strong>{data.name}</strong>
+                                            <p>
+                                                SN.
+                                                <span className="dealer-code">{data.SerialNo}</span>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </td>
 
                                 <td>
-                                    <strong>{dealer.dealerName}</strong>
-                                    <p className="dealer-id">ID: {dealer.id}</p>
+                                    <strong>{data.shopName}</strong>
+                                    <p>D Code: <span className="dealer-code">{data.dealerCode}</span></p>
                                 </td>
 
                                 <td>
-                                    <strong>{dealer.shopName}</strong>
+                                    <strong>{data.customerName}</strong>
                                 </td>
 
                                 <td>
-                                    {dealer.location}
-                                    <p>{dealer.address}</p>
-                                </td>
-
-                                <td>
-                                    <span className={`badge ${dealer.tier.toLowerCase()}`}>
-                                        {dealer.tier}
-                                    </span>
+                                    {data.purchaseDate}
                                 </td>
 
                                 <td>
                                     <select
-                                        className={`status-dropdown ${dealer.status.toLowerCase()}`}
-                                        value={dealer.status}
+                                        className={`status-dropdown ${data.status.toLowerCase()}`}
+                                        value={data.status}
                                         onChange={(e) => handleStatusChange(index, e.target.value)}
                                     >
                                         <option value="Approved">Approved</option>
@@ -197,7 +207,7 @@ const DealerManagement = () => {
             </div>
 
         </div>
-    );
-};
+    )
+}
 
-export default DealerManagement;
+export default WarrantyManagement

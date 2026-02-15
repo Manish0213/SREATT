@@ -163,18 +163,6 @@ tbody tr {
   background: #e5e7eb;
 }
 
-.status.active {
-  color: green;
-}
-
-.status.pending {
-  color: orange;
-}
-
-.status.inactive {
-  color: gray;
-}
-
 .status-dropdown {
   padding: 6px 10px;
   border-radius: 6px;
