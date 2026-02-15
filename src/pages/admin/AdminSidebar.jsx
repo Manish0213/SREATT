@@ -40,6 +40,12 @@ const AdminSidebar = ({ open, onClose }) => {
             <span>Inventory</span>
           </NavLink>
         </li>
+        <li className="">
+          <NavLink to="/admin/dealermanagement" onClick={onClose} className={({ isActive }) => isActive ? "active" : ""}>
+            <i className="fa-solid fa-box"></i>
+            <span>Manage Dealer</span>
+          </NavLink>
+        </li>
         <li>
           <i className="fa-solid fa-cart-shopping"></i>
           <span>Orders</span>

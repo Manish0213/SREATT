@@ -19,6 +19,7 @@ import ProductDetail from './pages/ProductDetail';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import CreateProduct from './pages/admin/CreateProduct';
 import Inventory from './pages/admin/Inventory';
+import DealerManagement from './pages/admin/DealerManagement';
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <Route path="create-product" element={<CreateProduct />} />
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="inventory" element={<Inventory />} />
+          <Route path="dealermanagement" element={<DealerManagement />} />
         </Route>
 
       </Routes>
