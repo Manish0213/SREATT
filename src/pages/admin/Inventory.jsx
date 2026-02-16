@@ -107,7 +107,7 @@ const Inventory = () => {
                 {products.map((item, index) => (
                     <div
                         key={index}
-                        className={`product-card ${item.status === "critical" ? "critical-border" : ""
+                        className={`inventory-card ${item.status === "critical" ? "critical-border" : ""
                             }`}
                     >
                         <div className="product-left">
@@ -125,7 +125,7 @@ const Inventory = () => {
 
                                 <div className="card-actions">
                                     <span
-                                        className={`badge ${item.status === "critical" ? "badge-red" : "badge-green"
+                                        className={`inventory-badge ${item.status === "critical" ? "badge-red" : "badge-green"
                                             }`}
                                     >
                                         {item.status === "critical"

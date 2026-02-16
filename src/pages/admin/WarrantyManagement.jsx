@@ -67,8 +67,8 @@ const WarrantyManagement = () => {
             {/* Header */}
             <div className="page-header">
                 <div>
-                    <h2>Dealer & Distributor Management</h2>
-                    <p>Monitor and manage your nationwide partner network.</p>
+                    <h2>Warranty Status Management</h2>
+                    <p>Keep track of your warranty network efficiently and effortlessly.</p>
                 </div>
 
                 <div className="header-actions">

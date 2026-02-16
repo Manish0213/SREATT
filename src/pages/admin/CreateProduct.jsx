@@ -182,7 +182,7 @@ const CreateProduct = () => {
             </div>
 
             {/* Vehicle Compatibility */}
-            <div className="cp-card full">
+            <div className="cp-card full-card">
                 <h3>Vehicle Compatibility</h3>
 
                 <input
