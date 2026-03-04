@@ -58,10 +58,39 @@ const RegisterWarranty = () => {
         const token = localStorage.getItem("token");
 
         if (!token) {
-            alert("Please login to submit warranty request");
-            navigate("/login");
+            // alert("Please login to submit warranty request");
+            setAlertData({ type: "error", message: "Please login to submit warranty request" });
+            // navigate("/login");
             return;
         }
+
+        const role = localStorage.getItem("role");
+
+        if (!role) {
+            setAlertData({
+                type: "error",
+                message: "Please login to submit warranty request"
+            });
+            return;
+        }
+
+        if (role === "ADMIN") {
+            setAlertData({
+                type: "error",
+                message: "You are an Admin. Warranty request not allowed."
+            });
+            return;
+        }
+
+        if (role === "DISTRIBUTOR") {
+            setAlertData({
+                type: "error",
+                message: "You are already a Distributor."
+            });
+            return;
+        }
+
+        // Agar role USER hai tab aage ka logic chalega
 
         const requestData = {
             dealerCode: formData.dealerCode,

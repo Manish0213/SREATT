@@ -87,6 +87,10 @@ const ProductDetail = () => {
                         <span>11 Reviews</span>
                     </div>
 
+                    <div className="serial-no">
+                        Serial No. <span>{product.serialNo}</span>
+                    </div>
+
                     <div className="product-info-content">
                         <h1 className='product-title'>{product.name}</h1>
                         <p className='product-description'>{product.description}</p>

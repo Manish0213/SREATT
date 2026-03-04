@@ -71,6 +71,7 @@ const AdminProductDetail = () => {
                 </div>
 
                 <div className="product-info-section">
+
                     <div className="ratings">
                         <div className='ratings-icons-container'>
                             <i class="fa-solid fa-star"></i>
@@ -80,6 +81,10 @@ const AdminProductDetail = () => {
                             <i class="fa-solid fa-star"></i>
                         </div>
                         <span>11 Reviews</span>
+                    </div>
+
+                    <div className="serial-no">
+                        Serial No. <span>{product.serialNo}</span>
                     </div>
 
                     <div className="product-info-content">

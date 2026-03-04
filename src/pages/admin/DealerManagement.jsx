@@ -137,7 +137,7 @@ const DealerManagement = () => {
     return (
         <div className="dealer-page">
             {loading && <Loading message="Please wait..." />}
-            {alertData && <Alert type={alertData.type} message={alertData.message} />}
+            {alertData && <Alert type={alertData.type} message={alertData.message} onClose={() => setAlertData(null)} />}
 
             {/* Header */}
             <div className="page-header">
