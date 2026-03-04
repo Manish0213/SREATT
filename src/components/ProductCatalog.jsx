@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const ProductCatalog = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const [filters, setFilters] = useState({
     vehicleTypes: [], minCapacity: null, maxCapacity: null
@@ -55,7 +56,7 @@ const ProductCatalog = () => {
   const fetchVehicleTypes = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8090/api/specifications/vehicle-types"
+        `${apiUrl}/api/specifications/vehicle-types`
       );
       setVehicleTypes(response.data);
     } catch (error) {
@@ -81,7 +82,7 @@ const ProductCatalog = () => {
       params.append("size", productsPerPage);
 
       const response = await axios.get(
-        `http://localhost:8090/api/products/filter-products?${params.toString()}`
+        `${apiUrl}/api/products/filter-products?${params.toString()}`
       );
 
       setProducts(response.data.content);
@@ -125,10 +126,20 @@ const ProductCatalog = () => {
           setCurrentPage={setCurrentPage}
         />
 
-        <div className="products">
+        {/* <div className="products">
           {products.map((item) => (
             <ProductCard key={item.id} product={item} />
           ))}
+        </div> */}
+
+        <div className="products">
+          {products.length === 0 ? (
+            <h2>Loading products...</h2>
+          ) : (
+            products.map((item) => (
+              <ProductCard key={item.id} product={item} />
+            ))
+          )}
         </div>
 
       </div >

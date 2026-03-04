@@ -71,7 +71,8 @@ function App() {
             </ProtectedRoute>
           }
         >
-          <Route index element={<AdminDashboard />} />
+          {/* <Route index element={<AdminDashboard />} /> */}
+          <Route index element={<Inventory />} />
           <Route path="create-product" element={<CreateProduct />} />
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="inventory" element={<Inventory />} />
