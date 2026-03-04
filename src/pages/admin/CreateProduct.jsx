@@ -6,7 +6,7 @@ import Alert from "./components/Alert";
 import Loading from "./components/Loading";
 
 const CreateProduct = () => {
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     const [images, setImages] = useState([]);
     const [brands, setBrands] = useState([]);

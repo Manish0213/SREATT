@@ -13,7 +13,7 @@ import products from '../data/products';
 import axios from 'axios';
 
 const ProductDetail = () => {
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
     const { serialno } = useParams();
 
     const [product, setProduct] = useState(null);

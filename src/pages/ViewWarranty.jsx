@@ -6,7 +6,7 @@ import Loading from './admin/components/Loading';
 import Alert from './admin/components/Alert';
 
 const ViewWarranty = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [serialNo, setSerialNo] = useState("");
   const [purchaseDate, setPurchaseDate] = useState("");
   const [warrantyData, setWarrantyData] = useState(null);

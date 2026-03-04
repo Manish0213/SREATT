@@ -6,7 +6,7 @@ import Loading from './admin/components/Loading';
 import Alert from './admin/components/Alert';
 
 const DistributerWarranty = () => {
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
     const [loading, setLoading] = useState(false);
     const [alertData, setAlertData] = useState(null);
 

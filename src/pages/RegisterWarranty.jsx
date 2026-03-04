@@ -7,7 +7,7 @@ import Alert from './admin/components/Alert';
 import Loading from './admin/components/Loading';
 
 const RegisterWarranty = () => {
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     // const [serialNumber, setSerialNumber] = useState("");
     const [showScanner, setShowScanner] = useState(false);

@@ -10,7 +10,7 @@ import Alert from './components/Alert';
 import Loading from './components/Loading';
 
 const WarrantyManagement = () => {
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     const [data, setData] = useState([]);
     const [page, setPage] = useState(0);

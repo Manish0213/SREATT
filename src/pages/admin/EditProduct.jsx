@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import Loading from "./components/Loading";
 
 const EditProduct = () => {
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     const [brands, setBrands] = useState([]);
     const [vehicleTypes, setVehicleTypes] = useState([]);
