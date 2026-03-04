@@ -38,6 +38,16 @@ const DistributerWarranty = () => {
             return;
         }
 
+        const role = localStorage.getItem("role");
+
+        if (role === "ADMIN") {
+            setAlertData({
+                type: "error",
+                message: "You are an Admin. You can't register as a Distributor"
+            });
+            return;
+        }
+
         const requestData = {
             shopName: formData.shopName,
             dealerCode: formData.dealerCode,
