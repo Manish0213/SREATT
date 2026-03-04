@@ -49,6 +49,14 @@
   font-size: 15px;
 }
 
+.form-group select {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #dcdfe4;
+  font-size: 15px;
+  background: white;
+}
+
 /* SUBMIT BUTTON */
 .submit-btn {
   grid-column: span 2;

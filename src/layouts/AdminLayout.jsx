@@ -33,8 +33,8 @@ const AdminLayout = () => {
         </button>
 
         <Outlet />
-      </div>
-    // </div>
+      {/* </div> */}
+    </div>
   );
 };
 

@@ -71,6 +71,48 @@
   transition: background 0.25s ease;
 }
 
+/* ----- POP-UP -------- */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  /* width: 400px; */
+  width: 350px;
+  text-align: left;
+}
+
+.green {
+  color: green;
+  font-weight: bold;
+}
+
+.red {
+  color: red;
+  font-weight: bold;
+}
+
+.view-arranty-close-btn {
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
 /* ===================== */
 /* 📱 Tablet & Mobile */
 /* ===================== */

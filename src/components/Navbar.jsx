@@ -2,12 +2,22 @@ import React, { useState } from 'react'
 import logo from "../assets/logo.png";
 import './Navbar.css'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const token = localStorage.getItem("token");
+    const navigate = useNavigate();
 
     const closeMenu = () => {
         setMenuOpen(false);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        setMenuOpen(false);
+        navigate("/login");
     };
 
     return (
@@ -28,12 +38,34 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <ul className="nav-btns flex">
-                        <li><Link to="/login" class="hover-link secondary-button">Login</Link></li>
-                        <li><Link to="/distributer-warranty" class="hover-link primary-button">Be a Distributer</Link></li>
+                        {/* <li><Link to="/login" class="hover-link secondary-button">Login</Link></li> */}
+                        {!token ? (
+                            <li onClick={closeMenu}>
+                                <Link to="/login" className="hover-link secondary-button">
+                                    Login
+                                </Link>
+                            </li>
+                        ) : (
+                            <li onClick={handleLogout}>
+                                <Link
+                                    className="hover-link secondary-button"
+                                >
+                                    Logout
+                                </Link>
+                            </li>
+                        )}
+                        <li onClick={closeMenu}><Link to="/distributer-warranty" class="hover-link primary-button">Be a Distributer</Link></li>
                     </ul>
                 </div>
 
-                <span onClick={() => setMenuOpen(!menuOpen)}><i class="fa-solid fa-bars"></i></span>
+                {/* <span onClick={() => setMenuOpen(!menuOpen)}><i class="fa-solid fa-bars"></i></span> */}
+                <span onClick={() => setMenuOpen(!menuOpen)}>
+                    {menuOpen ? (
+                        <i class="fa-solid fa-x"></i>   // Cross icon
+                    ) : (
+                        <i className="fa-solid fa-bars"></i>    // Hamburger icon
+                    )}
+                </span>
             </div>
         </nav>
     )

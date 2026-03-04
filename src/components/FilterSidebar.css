@@ -75,6 +75,7 @@
 }
 
 /* ------------------------ MY ADDITION --------------------- */
+
 .capacity-btns {
     display: flex;
     flex-wrap: wrap;
@@ -88,6 +89,12 @@
   background: #fff;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.capacity button.active {
+  background-color: #1E3A8A;
+  color: #fff;
+  border-color: #1E3A8A;
 }
 
 /* Responsive */

@@ -82,6 +82,15 @@ label {
   border: 1px solid #cbd5e1;
 }
 
+/* Textarea */
+.cp-card textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -110,6 +119,49 @@ label {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+}
+
+/* Vehicle Type */
+.vehicle-type-row {
+  display: flex;
+  gap: 8px;
+}
+
+.vehicle-type-row select {
+  flex: 1;
+}
+
+.vehicle-type-row button {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid #2563eb;
+  background: #eff6ff;
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.vehicle-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vehicle-tag {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vehicle-tag span {
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /* SKU */
@@ -224,42 +276,39 @@ label {
   font-weight: 500;
 }
 
-/* Image list */
+/* Image list as per image thumbnail */
 .image-list {
-  display: flex;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 10px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .image-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 8px 10px;
-  gap: 8px;
+    position: relative;
 }
 
-.image-name {
-  font-size: 13px;
-  color: #0f172a;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 220px;
+.image-thumb {
+    /* width: 100px;
+    height: 100px; */
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ddd;
 }
 
-/* Remove button */
 .remove-btn {
-  border: none;
-  background: transparent;
-  color: #ef4444;
-  font-size: 16px;
-  cursor: pointer;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 /* Quantity */

@@ -3,12 +3,12 @@ import "./CreateProduct.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Alert from "./components/Alert";
+import { useParams } from "react-router-dom";
 import Loading from "./components/Loading";
 
-const CreateProduct = () => {
+const EditProduct = () => {
     const apiUrl = process.env.REACT_APP_API_URL;
 
-    const [images, setImages] = useState([]);
     const [brands, setBrands] = useState([]);
     const [vehicleTypes, setVehicleTypes] = useState([]);
     const [batteryChemistries, setBatteryChemistries] = useState([]);
@@ -17,20 +17,12 @@ const CreateProduct = () => {
     const [selectedBrandId, setSelectedBrandId] = useState("");
     const [selectedChemistryId, setSelectedChemistryId] = useState("");
     const [quantity, setQuantity] = useState(48);
+    const [existingImages, setExistingImages] = useState([]);
+    const [newImages, setNewImages] = useState([]);
     const [loading, setLoading] = useState(false);
     const [alertData, setAlertData] = useState(null);
 
-    const initialFormState = {
-        name: "",
-        description: "",
-        serialNo: "",
-        price: "",
-        voltage: "",
-        cca: "",
-        ampHours: "",
-        reserveCapacity: "",
-        warrantyMonths: "",
-    };
+    const { serialNo } = useParams();
 
 
     // const [formData, setFormData] = useState({
@@ -47,32 +39,26 @@ const CreateProduct = () => {
     //     vehicleTypeIds: []
     // });
 
-    // const [formData, setFormData] = useState({
-    //     name: "",
-    //     description: "",
-    //     serialNo: "",
-    //     price: "",
-    //     voltage: "",
-    //     cca: "",
-    //     ampHours: "",
-    //     reserveCapacity: "",
-    //     warrantyMonths: "",
-    // });
+    const [formData, setFormData] = useState({
+        name: "",
+        description: "",
+        serialNo: "",
+        price: "",
+        voltage: "",
+        cca: "",
+        ampHours: "",
+        reserveCapacity: "",
+        warrantyMonths: "",
+    });
 
-    const [formData, setFormData] = useState(initialFormState);
-
-    const handleImageChange = (e) => {
+    const handleNewImageChange = (e) => {
         const files = Array.from(e.target.files);
 
         // append new images
-        setImages((prev) => [...prev, ...files]);
+        setNewImages((prev) => [...prev, ...files]);
 
         // same file dobara select karne ke liye
         e.target.value = null;
-    };
-
-    const removeImage = (index) => {
-        setImages((prev) => prev.filter((_, i) => i !== index));
     };
 
     const handleAddVehicle = () => {
@@ -101,7 +87,7 @@ const CreateProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        setAlertData(null); // purana alert clear
+        setAlertData(null);
 
         try {
             const token = localStorage.getItem("token");
@@ -123,48 +109,83 @@ const CreateProduct = () => {
             form.append("brandId", Number(selectedBrandId));
             form.append("batteryChemistryId", Number(selectedChemistryId));
 
-            selectedVehicles.forEach(v => {
+            selectedVehicles.forEach((v) => {
                 form.append("vehicleTypeIds", v.id);
             });
 
-            images.forEach(img => {
+            // ✅ New images
+            newImages.forEach((img) => {
                 form.append("images", img);
             });
 
-            await axios.post(`${apiUrl}/api/products`, form, {
-                headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}`, }
+            // ✅ Existing image URLs
+            existingImages.forEach((imgUrl) => {
+                form.append("existingImages", imgUrl);
             });
 
-            // ✅ Success alert
+            await axios.put(
+                `${apiUrl}/api/products/${serialNo}`,
+                form,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        Authorization: `Bearer ${token}`, // 👈 TOKEN
+                    },
+                }
+            );
+
+            // ✅ Success Alert
             setAlertData({
                 type: "success",
-                message: "Product created successfully ✅"
+                message: "Product updated successfully ✅",
             });
-
-            // 🔥 FORM RESET YAHAN HOGA
-            setFormData(initialFormState);
-            setSelectedBrandId("");
-            setSelectedChemistryId("");
-            setSelectedVehicleId("");
-            setSelectedVehicles([]);
-            setImages([]);
-            setQuantity(48);   // default stock
 
         } catch (error) {
 
             const backendMessage =
                 error.response?.data?.errorMessage ||
-                "Something went wrong ❌";
+                "Failed to update product ❌";
 
             setAlertData({
                 type: "error",
-                message: backendMessage
+                message: backendMessage,
             });
 
         } finally {
-            setLoading(false); // 👈 HAMESHA chalega
+            setLoading(false); // 👈 Always run
         }
     };
+
+    // ================= FETCH PRODUCT =================
+    useEffect(() => {
+        axios.get(`${apiUrl}/api/products/serial/${serialNo}`)
+            .then(res => {
+                const data = res.data;
+                console.log("My data", data);
+                // console.log("Vehicle Types:", data.vehicleTypesDto);
+
+                setFormData({
+                    name: data.name || "",
+                    description: data.description || "",
+                    price: data.price || "",
+                    stock: data.stock || "",
+                    voltage: data.voltage || "",
+                    cca: data.cca || "",
+                    ampHours: data.ampHours || "",
+                    reserveCapacity: data.reserveCapacity || "",
+                    warrantyMonths: data.warrantyMonths || "",
+                    serialNo: data.serialNo || ""
+                });
+
+                setSelectedBrandId(data.brandDto.id);
+                setSelectedChemistryId(data.batteryChemistryDto.id.toString());
+                setExistingImages(data.images || []);
+                setSelectedVehicles(data.vehicleTypesDto || []);
+
+                setQuantity(data.stock);
+            })
+            .catch(err => console.error(err));
+    }, []);
 
     useEffect(() => {
         axios.get(`${apiUrl}/api/specifications/vehicle-types`)
@@ -197,17 +218,22 @@ const CreateProduct = () => {
                 //     <div className="loading-spinner"></div>
                 //     <p>Creating Product...</p>
                 // </div>
-                <Loading message="Creating Product..." />
-            )}
-            {alertData && (
-                <Alert type={alertData.type} message={alertData.message} onClose={() => setAlertData(null)} />
+                <Loading message="Updating Product..." />
             )}
             {/* <Alert /> */}
+            {alertData && (
+                <Alert
+                    type={alertData.type}
+                    message={alertData.message}
+                    onClose={() => setAlertData(null)}
+                />
+            )}
+
             {/* Header */}
             <div className="cp-header">
                 <div>
-                    <h1>Upload New Battery Product</h1>
-                    <p>Add technical specifications and pricing for a new vehicle battery unit.</p>
+                    <h1>Update Battery Product</h1>
+                    <p>Update technical specifications and pricing for a existing vehicle battery unit.</p>
                 </div>
 
                 {/* <div className="cp-actions">
@@ -222,7 +248,7 @@ const CreateProduct = () => {
                     {/* <button
                             type="button"
                             className="btn-outline"
-                            // onClick={() => handleSubmit("DRAFT")}
+                        // onClick={() => handleSubmit("DRAFT")}
                         >
                             Save Draft
                         </button> */}
@@ -415,7 +441,7 @@ const CreateProduct = () => {
                                 type="file"
                                 accept="image/*"
                                 multiple
-                                onChange={handleImageChange}
+                                onChange={handleNewImageChange}
                             />
 
                             <div className="upload-content">
@@ -426,27 +452,59 @@ const CreateProduct = () => {
                     </div>
 
                     {/* Selected Images */}
-                    {images.length > 0 && (
+                    {(existingImages.length > 0 || newImages.length > 0) && (
                         <div className="image-list">
-                            {images.map((file, index) => (
-                                <div key={index} className="image-item">
-                                    {/* <span className="image-name">{file.name}</span> */}
+                            {existingImages.length > 0 && (
+                                <div className="image-list">
+                                    {existingImages.map((img, index) => (
+                                        <div key={index} className="image-item">
+                                            <img
+                                                src={img}
+                                                alt="existing"
+                                                className="image-thumb"
+                                            />
 
-                                    <img
-                                        src={URL.createObjectURL(file)}
-                                        alt="preview"
-                                        className="image-thumb"
-                                    />
-
-                                    <button
-                                        type="button"
-                                        className="remove-btn"
-                                        onClick={() => removeImage(index)}
-                                    >
-                                        ✕
-                                    </button>
+                                            <button
+                                                type="button"
+                                                className="remove-btn"
+                                                onClick={() =>
+                                                    setExistingImages(prev =>
+                                                        prev.filter((_, i) => i !== index)
+                                                    )
+                                                }
+                                            >
+                                                ✕
+                                            </button>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            )}
+
+                            {newImages.length > 0 && (
+                                <div className="image-list">
+                                    {newImages.map((file, index) => (
+                                        <div key={index} className="image-item">
+                                            <img
+                                                src={URL.createObjectURL(file)}
+                                                alt="new"
+                                                className="image-thumb"
+                                            />
+
+                                            <button
+                                                type="button"
+                                                className="remove-btn"
+                                                onClick={() =>
+                                                    setNewImages(prev =>
+                                                        prev.filter((_, i) => i !== index)
+                                                    )
+                                                }
+                                            >
+                                                ✕
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     )}
 
@@ -504,4 +562,4 @@ const CreateProduct = () => {
     );
 };
 
-export default CreateProduct;
+export default EditProduct;

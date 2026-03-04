@@ -227,6 +227,11 @@
     color: red;
 }
 
+.badge-orange {
+    background: #ffeaea;
+    color: orange;
+}
+
 .sku {
     font-size: 13px;
     color: gray;
@@ -358,6 +363,15 @@
 
 @media (max-width: 480px) {
 
+    /* TOPBAR RESPONSIVENESS */
+    .topbar input {
+        width: 100%;
+    }
+
+    .topbar-actions {
+        display: none;
+    }
+
     /* PRODUCT-CARD RESPONSIVENESS */
 
     /* One product per row */
@@ -369,7 +383,7 @@
     /* Card Layout */
     .inventory-card {
         padding: 12px;
-        gap: 12px;
+        /* gap: 12px; */
         border-radius: 10px;
     }
 
@@ -474,6 +488,11 @@
 
     .stat-card span {
         font-size: 10px;
+    }
+
+    /* ADD SKU CARD RESPONSIVENESS*/
+    .add-sku-card {
+        display: none;
     }
 
 }

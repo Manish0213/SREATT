@@ -16,11 +16,11 @@ const ProductCard = ({ product }) => {
         <p className="price">₹ {product.price.toLocaleString("en-IN")}</p>
 
         <div className="meta">
-          <div className='meta-box-1'><span>CCA: Performance</span><p className='meta-value'>{product.amps}</p></div>
-          <div className='meta-box-1'><span>Warranty </span><p className='meta-value'>{product.warranty}</p></div>
+          <div className='meta-box-1'><span>CCA: Performance</span><p className='meta-value'>{product.ampHours} AH</p></div>
+          <div className='meta-box-1'><span>Warranty </span><p className='meta-value'>{product.warrantyMonths} Months</p></div>
         </div>
 
-        <button className="btn" onClick={() => navigate(`/product/${product.id}`)}>View Details</button>
+        <button className="btn" onClick={() => navigate(`/product/${product.serialNo}`)}>View Details</button>
       </div>
     </div>
   );

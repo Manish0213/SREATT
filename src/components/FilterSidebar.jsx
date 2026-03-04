@@ -1,6 +1,9 @@
 import '../components/FilterSidebar.css';
 
-const FilterSidebar = ({ filters, setFilters, showFilter, setShowFilter }) => {
+const FilterSidebar = ({ filters, setFilters, showFilter, setShowFilter, vehicleTypes, setAppliedFilters, setCurrentPage }) => {
+
+
+
   return (
     <div className={`filter ${showFilter ? "active" : ""}`}>
       {/* <div className="Filter-heading"><i class="fa-solid fa-filter"></i> Filter</div> */}
@@ -15,37 +18,26 @@ const FilterSidebar = ({ filters, setFilters, showFilter, setShowFilter }) => {
 
       <div className="vehicle-type">
         <h4>Vehicle Type</h4>
-        <div className='label'>
-          <input
-            type="checkbox"
-            onChange={() => setFilters({ ...filters, car: !filters.car })}
-          />
-          <span>Motorcycle</span>
-        </div>
-        <div className='label'>
-          <input
-            type="checkbox"
-            onChange={() => setFilters({ ...filters, car: !filters.car })}
-          />
-          <span>Car & SUV</span>
-        </div>
-        <div className='label'>
-          <input
-            type="checkbox"
-            onChange={() => setFilters({ ...filters, car: !filters.car })}
-          />
-          <span>Inverter & UPS</span>
-        </div>
-        <div className='label'>
-          <input
-            type="checkbox"
-            onChange={() => setFilters({ ...filters, car: !filters.car })}
-          />
-          <span>E-Rickshaw</span>
-        </div>
+
+        {vehicleTypes.map((type) => (
+          <div className="label" key={type.id}>
+            <input
+              type="checkbox"
+              checked={filters.vehicleTypes.includes(type.id)}
+              onChange={() => {
+                const updated = filters.vehicleTypes.includes(type.id)
+                  ? filters.vehicleTypes.filter(id => id !== type.id)
+                  : [...filters.vehicleTypes, type.id];
+
+                setFilters({ ...filters, vehicleTypes: updated });
+              }}
+            />
+            <span>{type.name}</span>
+          </div>
+        ))}
       </div>
 
-      <div className="bettery-technology">
+      {/* <div className="bettery-technology">
         <h4>Battery Technology</h4>
         <div className='label'>
           <input type="checkbox" /> <span>VRLA Design</span>
@@ -56,20 +48,91 @@ const FilterSidebar = ({ filters, setFilters, showFilter, setShowFilter }) => {
         <div className='label'>
           <input type="checkbox" /> <span>Pure Lead-Calcium</span>
         </div>
-      </div>
+      </div> */}
 
       <div className="capacity">
         <h4>Capacity (Ah)</h4>
         <div className="capacity-btns">
-          <button>2.5 Ah - 5 Ah</button>
-          <button>7 Ah - 12Ah</button>
-          <button>35 Ah - 65 Ah</button>
-          <button>100 Ah +</button>
+
+          <button
+            className={
+              filters.minCapacity === 2.5 && filters.maxCapacity === 5
+                ? "active"
+                : ""
+            }
+            onClick={() =>
+              setFilters({ ...filters, minCapacity: 2.5, maxCapacity: 5 })
+            }
+          >
+            2.5 Ah - 5 Ah
+          </button>
+
+          <button
+            className={
+              filters.minCapacity === 7 && filters.maxCapacity === 12
+                ? "active"
+                : ""
+            }
+            onClick={() =>
+              setFilters({ ...filters, minCapacity: 7, maxCapacity: 12 })
+            }
+          >
+            7 Ah - 12Ah
+          </button>
+
+          <button
+            className={
+              filters.minCapacity === 35 && filters.maxCapacity === 65
+                ? "active"
+                : ""
+            }
+            onClick={() =>
+              setFilters({ ...filters, minCapacity: 35, maxCapacity: 65 })
+            }
+          >
+            35 Ah - 65 Ah
+          </button>
+
+          <button
+            className={
+              filters.minCapacity === 100 && filters.maxCapacity === null
+                ? "active"
+                : ""
+            }
+            onClick={() =>
+              setFilters({ ...filters, minCapacity: 100, maxCapacity: null })
+            }
+          >
+            100 Ah +
+          </button>
+
         </div>
       </div>
 
-      <button className="apply-btn">Apply Filters</button>
-      <button className="reset-btn">Reset All</button>
+      <button className="apply-btn" onClick={() => { setAppliedFilters(filters); setCurrentPage(1); setShowFilter(false); }}>Apply Filters</button>
+      {/* <button className="reset-btn" onClick={() =>
+        setFilters({
+          vehicleTypes: [],
+          minCapacity: null,
+          maxCapacity: null
+        })
+      }>Reset All</button> */}
+      <button
+        className="reset-btn"
+        onClick={() => {
+          const reset = {
+            vehicleTypes: [],
+            minCapacity: null,
+            maxCapacity: null
+          };
+
+          setFilters(reset);
+          setAppliedFilters(reset);
+          setCurrentPage(1);
+        }}
+      >
+        Reset All
+      </button>
     </div>
   );
 };

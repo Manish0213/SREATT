@@ -26,6 +26,8 @@
   /* padding: 15px; */
   border-radius: 8px;
   background: #fff;
+
+  /* border: 1px solid red; */
 }
 
 .product-card img {
@@ -52,6 +54,8 @@
 .product-content-container {
   background-color: #f9f9f9;
   padding: 15px;
+
+  /* border: 1px solid black; */
 }
 
 .descritpion-1 {

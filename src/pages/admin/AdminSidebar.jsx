@@ -1,8 +1,18 @@
 import React from "react";
 import "./AdminSidebar.css";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AdminSidebar = ({ open, onClose }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    navigate("/login");
+  };
+
+
   return (
     <aside className={`admin-sidebar ${open ? "open" : ""}`}>
 
@@ -22,43 +32,47 @@ const AdminSidebar = ({ open, onClose }) => {
 
       {/* Menu */}
       <ul className="sidebar-menu">
-        <li>
+        {/* <li>
           <NavLink to="/admin/products" onClick={onClose} className={({ isActive }) => isActive ? "active" : ""}>
             <i className="fa-solid fa-box"></i>
             <span>Products</span>
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to="/admin/create-product" onClick={onClose} className={({ isActive }) => isActive ? "active" : ""}>
-            <i className="fa-solid fa-box"></i>
+            <i className="fa-solid fa-box-open"></i>
             <span>Create Product</span>
           </NavLink>
         </li>
         <li className="">
           <NavLink to="/admin/inventory" onClick={onClose} className={({ isActive }) => isActive ? "active" : ""}>
-            <i className="fa-solid fa-box"></i>
+            <i className="fa-solid fa-warehouse"></i>
             <span>Inventory</span>
           </NavLink>
         </li>
         <li className="">
           <NavLink to="/admin/dealermanagement" onClick={onClose} className={({ isActive }) => isActive ? "active" : ""}>
-            <i className="fa-solid fa-box"></i>
+            <i class="fa-solid fa-users"></i>
             <span>Manage Dealer</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/admin/warrantymanagement" onClick={onClose} className={({ isActive }) => isActive ? "active" : ""}>
-            <i className="fa-solid fa-box"></i>
+            <i class="fa-solid fa-shield"></i>
             <span>Manage Warranty</span>
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <i className="fa-solid fa-users"></i>
           <span>Customers</span>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <i className="fa-solid fa-chart-line"></i>
           <span>Reports</span>
+        </li> */}
+        <li onClick={handleLogout}>
+          <i class="fa-solid fa-power-off"></i>
+          <span>Logout</span>
         </li>
       </ul>
 

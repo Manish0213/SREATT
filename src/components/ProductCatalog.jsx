@@ -1,20 +1,26 @@
-import products from "../data/products";
+// import products from "../data/products";
 import ProductCard from "./ProductCard";
 import FilterSidebar from "./FilterSidebar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const ProductCatalog = () => {
-  const [filters, setFilters] = useState({});
+
+  const [filters, setFilters] = useState({
+    vehicleTypes: [], minCapacity: null, maxCapacity: null
+  });
+
+  const [appliedFilters, setAppliedFilters] = useState(filters);
+
   const [showFilter, setShowFilter] = useState(false);
+  const [vehicleTypes, setVehicleTypes] = useState([]);
+
+  const [products, setProducts] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 6;
-
-  const lastIndex = currentPage * productsPerPage;
-  const firstIndex = lastIndex - productsPerPage;
-  const currentProducts = products.slice(firstIndex, lastIndex);
-  const totalPages = Math.ceil(products.length / productsPerPage);
 
   const goPrev = () => {
     if (currentPage > 1) {
@@ -45,6 +51,56 @@ const ProductCatalog = () => {
     return pages;
   };
 
+  // 🔥 Fetch Vehicle Types Function
+  const fetchVehicleTypes = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8090/api/specifications/vehicle-types"
+      );
+      setVehicleTypes(response.data);
+    } catch (error) {
+      console.error("Error fetching vehicle types:", error);
+    }
+  };
+
+  const fetchProducts = async () => {
+    try {
+      const params = new URLSearchParams();
+
+      appliedFilters.vehicleTypes.forEach(id =>
+        params.append("vehicleTypes", id)
+      );
+
+      if (appliedFilters.minCapacity !== null)
+        params.append("minCapacity", appliedFilters.minCapacity);
+
+      if (appliedFilters.maxCapacity !== null)
+        params.append("maxCapacity", appliedFilters.maxCapacity);
+
+      params.append("page", currentPage - 1); // Spring starts from 0
+      params.append("size", productsPerPage);
+
+      const response = await axios.get(
+        `http://localhost:8090/api/products/filter-products?${params.toString()}`
+      );
+
+      setProducts(response.data.content);
+      setTotalPages(response.data.totalPages);
+
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+
+  // Call on page load
+  useEffect(() => {
+    fetchVehicleTypes();
+  }, []);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [appliedFilters, currentPage]);
+
   return (
     <>
       <div className="catalog container">
@@ -61,12 +117,16 @@ const ProductCatalog = () => {
         <FilterSidebar
           filters={filters}
           setFilters={setFilters}
+          appliedFilters={appliedFilters}
+          setAppliedFilters={setAppliedFilters}
           showFilter={showFilter}
           setShowFilter={setShowFilter}
+          vehicleTypes={vehicleTypes}
+          setCurrentPage={setCurrentPage}
         />
 
         <div className="products">
-          {currentProducts.map((item) => (
+          {products.map((item) => (
             <ProductCard key={item.id} product={item} />
           ))}
         </div>

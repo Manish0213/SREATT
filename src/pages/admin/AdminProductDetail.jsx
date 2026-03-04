@@ -1,18 +1,13 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import './ProductDetail.css';
-import thumbnail1 from '../assets/ThumbnailImages/thumbnail1.png';
-import thumbnail2 from '../assets/ThumbnailImages/thumbnail2.png';
-import thumbnail3 from '../assets/ThumbnailImages/thumbnail3.png';
-import thumbnail4 from '../assets/ThumbnailImages/thumbnail4.png';
-import iamge2 from '../assets/ProductImages/image2.png';
-import Contact from '../components/Contact';
-import ProductDetailHero from '../components/ProductDetailHero';
+import './AdminProductDetail.css';
+import Contact from '../../components/Contact';
+import ProductDetailHero from '../../components/ProductDetailHero';
 import { useParams } from 'react-router-dom';
-import products from '../data/products';
+// import products from '../data/products';
 import axios from 'axios';
 
-const ProductDetail = () => {
+const AdminProductDetail = () => {
     const apiUrl = process.env.REACT_APP_API_URL;
     const { serialno } = useParams();
 
@@ -102,10 +97,10 @@ const ProductDetail = () => {
                     <button className='find-dealer-btn'>Find a Dealer</button>
                 </div>
             </section>
-            <ProductDetailHero />
-            <Contact />
+            {/* <ProductDetailHero /> */}
+            {/* <Contact /> */}
         </>
     )
 }
 
-export default ProductDetail
+export default AdminProductDetail
