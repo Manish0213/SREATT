@@ -7,6 +7,8 @@ import axios from "axios";
 const ProductCatalog = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
 
+  const [loading, setLoading] = useState(true);
+
   const [filters, setFilters] = useState({
     vehicleTypes: [], minCapacity: null, maxCapacity: null
   });
@@ -90,6 +92,8 @@ const ProductCatalog = () => {
 
     } catch (error) {
       console.error("Error fetching products:", error);
+    } finally {
+      setLoading(false); // 👈 important
     }
   };
 
@@ -133,8 +137,10 @@ const ProductCatalog = () => {
         </div> */}
 
         <div className="products">
-          {products.length === 0 ? (
-            <h2>Loading products...</h2>
+          {loading ? (
+            <h3 style={{ textAlign: "center", marginTop: "10px" }}>Loading products...</h3>
+          ) : products.length === 0 ? (
+            <h3 style={{ textAlign: "center", marginTop: "10px" }}>No Products Found</h3>
           ) : (
             products.map((item) => (
               <ProductCard key={item.id} product={item} />
