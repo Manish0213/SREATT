@@ -33,8 +33,12 @@ const DistributerWarranty = () => {
         const token = localStorage.getItem("token");
 
         if (!token) {
-            alert("Please login to submit warranty request");
-            navigate("/login");
+            // alert("Please login to submit warranty request");
+            setAlertData({
+                type: "error",
+                message: "Please login to submit warranty request"
+            });
+            // navigate("/login");
             return;
         }
 
